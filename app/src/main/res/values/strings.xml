@@ -3,5 +3,5 @@
     <string name="amount">Loan Amount</string>
     <string name="rate">Interest Rate</string>
     <string name="years">Number of Years</string>
-    <string name="payment">Monthly Payment:</string>
+    <string name="payment">Monthly Payment: %s</string>
 </resources>

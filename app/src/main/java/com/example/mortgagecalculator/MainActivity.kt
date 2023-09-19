@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import com.example.mortgagecalculator.ui.theme.MortgageCalculatorTheme
 import java.text.NumberFormat
 import kotlin.math.pow
+import kotlin.math.round
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,8 +69,15 @@ fun MortgageCalculatorLayout() {
     val rate = rateInput.toDoubleOrNull() ?: 0.0
     val years = yearsInput.toIntOrNull() ?: 0
 
+    // I had trouble getting the calculations to work with the instructions provided.
+    // Instead of dividing rate and years by 12, this is how I did the math.  It produces
+    // the correct answer compared with online payment calculators.
 
-    val payment = calculateMortgage(amount, rate, years)
+    val rateDiv = (rate * .01) / 12
+    val months = years * 12
+
+    val payment = calculateMortgage(amount, rateDiv, months)
+
 
     Column(
         modifier = Modifier
